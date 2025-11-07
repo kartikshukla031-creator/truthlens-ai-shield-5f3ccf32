@@ -26,6 +26,7 @@ const Verify = () => {
     setIsLoading(true);
     setTimeout(() => {
       const mockScore = Math.floor(Math.random() * 100);
+      const encodedClaim = encodeURIComponent(claim);
       setResult({
         score: mockScore,
         explanation: mockScore >= 70 
@@ -34,9 +35,9 @@ const Verify = () => {
           ? "This claim lacks sufficient evidence and should be approached with caution. Some elements may be true, but overall verification is inconclusive."
           : "According to verified sources, this claim is false and has been debunked by multiple fact-checking organizations.",
         sources: [
-          { name: "Snopes", url: "https://snopes.com", verified: true },
-          { name: "PolitiFact", url: "https://politifact.com", verified: true },
-          { name: "Google Fact Check", url: "https://toolbox.google.com/factcheck", verified: true },
+          { name: "Snopes", url: `https://www.snopes.com/search/?q=${encodedClaim}`, verified: true },
+          { name: "PolitiFact", url: `https://www.politifact.com/search/?q=${encodedClaim}`, verified: true },
+          { name: "Google Fact Check", url: `https://toolbox.google.com/factcheck/explorer/search/${encodedClaim}`, verified: true },
         ]
       });
       setIsLoading(false);
