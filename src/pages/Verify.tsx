@@ -38,6 +38,7 @@ const Verify = () => {
           { name: "Snopes", url: `https://www.snopes.com/search/?q=${encodedClaim}`, verified: true },
           { name: "PolitiFact", url: `https://www.politifact.com/search/?q=${encodedClaim}`, verified: true },
           { name: "Google Fact Check", url: `https://toolbox.google.com/factcheck/explorer/search/${encodedClaim}`, verified: true },
+          { name: "BBC News", url: `https://www.bbc.co.uk/search?q=${encodedClaim}`, verified: true },
         ]
       });
       setIsLoading(false);
